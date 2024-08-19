@@ -388,7 +388,7 @@ header {
     list-style:circle;
 }
 
-.about-me__body li {
+.about-me__description {
     font-weight: var(--fw-reg);
 }
 
