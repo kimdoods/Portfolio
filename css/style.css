@@ -486,7 +486,7 @@ header {
     }
 
     .logo-left, .logo-right {
-        max-width: 2em; /* Adjust logo size */
+        max-width: 1em; /* Adjust logo size */
     }
 
     .portfolio-heading {
