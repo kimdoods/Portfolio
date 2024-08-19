@@ -459,6 +459,41 @@ header {
     height: auto;
 }
 
+/* Portfolio */
+@media (max-width: 600px) {
+    .portfolio {
+        grid-template-columns: repeat(auto-fit, minmax(12em, 1fr)); /* Adjust min-width */
+        gap: 1em; /* Adjust the gap between items */
+    }
+
+    .portfolio__item {
+        padding-top: 80%; /* Adjust aspect ratio if needed */
+        margin: 0.5em; /* Add some margin to avoid items being too close */
+    }
+
+    .portfolio__img {
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .hover-text {
+        font-size: 0.9rem; /* Adjust font size if needed */
+    }
+
+    .portfolio-title {
+        flex-direction: column; /* Stack logo and title vertically */
+        gap: 0.5em; /* Adjust gap for smaller screens */
+    }
+
+    .logo-left, .logo-right {
+        max-width: 5em; /* Adjust logo size */
+    }
+
+    .portfolio-heading {
+        font-size: 1.5rem; /* Adjust heading size */
+    }
+}
+
 /* Title styling */
 .portfolio-heading {
     font-size: var(--fs-h2); /* Use your variable for consistent styling */
