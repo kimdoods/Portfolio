@@ -380,6 +380,10 @@ header {
     font-weight: var(--fw-bold);
 }
 
+.about-me__body li {
+    font-weight: var(--fw-reg);
+}
+
 .about-me__img {
     box-shadow: var(--bs);
 }
