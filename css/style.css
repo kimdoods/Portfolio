@@ -481,12 +481,17 @@ header {
     }
 
     .portfolio-title {
-        flex-direction: column; /* Stack logo and title vertically */
-        gap: 0.5em; /* Adjust gap for smaller screens */
+        display: flex; /* Ensure it uses Flexbox */
+        flex-direction: row; /* Align items side by side */
+        align-items: center; /* Vertically center items */
+        justify-content: center; /* Center horizontally */
+        gap: 1em; /* Adjust space between items */
+        margin-bottom: 2em; /* Ensure there’s some space below */
     }
 
     .logo-left, .logo-right {
-        max-width: 1em; /* Adjust logo size */
+        max-width: 5em; /* Adjust logo size */
+        height: auto; /* Maintain aspect ratio */
     }
 
     .portfolio-heading {
