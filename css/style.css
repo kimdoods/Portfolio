@@ -1,0 +1,617 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Custom Properties, update these for own design */
+
+:root {
+    --ff-primary: 'IBM Plex Sans', sans-serif;
+    --ff-secondary: 'IBM Plex Sans', sans-serif;
+
+    --fw-reg: 400;
+    --fw-bold: 700;
+
+    --clr-light: #e8e1cc;
+    --clr-light2: #D8FBA6;
+    --clr-accent: #f26a02;
+    --clr-accent2: #FC9B00;
+    --clr-accent3: #EB225D;
+    --clr-dark: #00314A;
+    --clr-teal: #275959;
+    
+/* orange #ffaa00 */
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+    0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+@media (min-width: 900px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 2.25rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+/* General Styles */
+
+/* html scrolling during Java Scripting part of tutorial */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--clr-light);
+    /* background-image: url(/img/texture/crumple.jpeg);
+    background-size: cover; */
+    color: var(--clr-accent);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section { 
+    padding: 4em 1em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+strong { 
+    font-weight: var(--fw-bold)
+}
+
+/*1:04:18 of tutorial*/
+
+:focus {
+    border-radius: 0.2em; /* Adjust this value as needed */
+    border: 0.05em solid var(--clr-accent); /* Optional: Border color */
+    box-shadow: 0 0 0 0.1em var(--clr-accent); /* Optional: Shadow effect */
+    outline: none; /* Optional: Remove default outline */
+}
+
+/* Apply rounded corners specifically to inputs and buttons */
+input:focus, button:focus {
+    border-radius: 0.2em;
+    border: 0.2em solid var(--clr-accent); /* Optional: Border color */
+    box-shadow: 0 0 0 0.1em var(--clr-accent); /* Optional: Shadow effect */
+    outline: none; /* Optional: Remove default outline */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.5em 3em;
+    background: var(--clr-dark);
+    color: var(--clr-accent);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transition: transform 200ms ease-in-out;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+    line-height: 1.125;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1)}
+h2 { font-size: var(--fs-h2)}
+h3 { font-size: var(--fs-h3)}
+
+/* spacing of section titles, the big headache */
+.section__title {
+    margin-bottom: 0 auto;
+}
+
+/* spacing of work title */
+.section__title--work {
+    margin-bottom: 0.1em;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+    font-size: var(--fs-h3);
+}
+
+.section__title--intro strong {
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0 auto;
+    font-size: var(--fs-h3);
+}
+
+/* .section__subtitle--intro {
+    background: var(--clr-dark);
+    padding: .25em 1em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 7em;
+} */
+
+.section__subtitle--about {
+    background: var(--clr-accent3);
+    padding: .25em;
+    font-family: var(--ff-secondary);
+}
+
+.section__subtitle--work {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+/* header */
+/* navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    /* margin */
+}
+
+.logo {
+    max-width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -2em;
+    /* try svg 1:38:11*/
+}
+
+.nav {
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5,0,.5,1);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 4em;
+}
+
+.nav__link {
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h3);
+    text-decoration: none;
+    padding: 0.3em;
+}
+
+.nav__link:hover {
+    color: var(--clr-accent);
+}
+
+.nav-toggle {
+    padding: 1.5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: fixed;
+    /* position used to be absolute */
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+
+.nav-toggle:not(:hover) {
+    mix-blend-mode: darken;
+}
+
+.nav-toggle:hover {
+    transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+/* JS  */
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-0.38em);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
+/* hamburger, more complicated way so can add animations */
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-accent);
+    width: 4em;
+    height: 0.2em;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.hamburger::before { top: 0.5em; }
+.hamburger::after { bottom: 0.5em; }
+
+
+/* if you want smaller accent block below "Hi, ..." .section__subtitle--intro {display: inline-block} */
+
+@media (min-width: 600px) {
+    .section__subtitle--intro {
+        align-self: center;
+        /* align-self: start; originally */
+        grid-column: -1 / 1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+}
+
+/* My Services Section */
+
+.my-services {
+    background-color: var(--clr-dark);
+    background-image: url("/img/mograph/denver.jpg");
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: var(--clr-light);
+    text-align: center;
+}
+
+/* title for services section "What I do" */
+.section__title--services {
+    color: var(--clr-accent);
+    position: relative;
+}
+
+/* style of line below "what i do", background, and letters */
+.section__title--services::after {
+    content:'';
+    display: block;
+    width: 1em;
+    height: 1px;
+    margin: 0.5em auto;
+    background: var(--clr-light);
+    opacity: 0.5;
+}
+
+.youtube-video {
+    width: 60%;
+    aspect-ratio: 16 / 9; /* Maintains 16:9 aspect ratio */
+    height: auto;
+    margin-bottom: 3em;
+}
+
+.services {
+    margin-bottom: 2em;
+}
+
+/* .service {
+    max-width: 500px;
+    margin: 0 auto;
+} */
+
+/* Break into multiple columns */
+
+@media (min-width: 900px) {
+    .services {
+        display: flex;
+        max-width: 1000px;
+        min-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .service + .service {
+        margin-left: 2em;
+    }
+}
+
+
+/* About Me Section, 1:08:00 */
+
+.about-me {
+    max-width: 1100px;
+    /* background-image: url(/img/brand/logo-1.png);
+    background-size: 200px 200px; */
+    margin: 0 auto;
+    color: var(--clr-dark);
+    font-weight: var(--fw-bold);
+}
+
+.about-me__img {
+    box-shadow: var(--bs);
+}
+
+.about-me ul {
+    list-style:circle;
+}
+
+@media (min-width: 600px) {
+    /* picture size in about me section */
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 15em;
+        grid-template-areas:
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+
+    .section__title--about {
+        grid-area: title;
+    }
+
+    .about-me__img {
+        grid-area: img;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+    /* the bar that says "Kim Lagunas" */
+.section__subtitle--about {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        padding: 0.2em 0.2em; /* Adjust padding as needed */
+        display: inline-block; /* Shrink to fit content */
+        transform: translateX(-0.2em); /* Shift the block to the left */
+        margin: 0 auto;
+        
+
+        border-radius: 0.2em; /* Rounded corners */
+        color: var(--clr-light); /* Text color */
+        background-color: var(--clr-accent3); /* Pink/red background color */
+        font-size: var(--fs-h3); /* Font size for the text */
+}
+
+/* My Work * 1:20:39 */
+
+.my-work {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+/* Title container */
+.portfolio-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em; /* Adjust space between logos and title */
+    margin-bottom: 2em;
+}
+
+/* Logo styling */
+.logo-left {
+    max-width: 7em; /* Adjust size as needed */
+    margin: -0.2em;
+    height: auto;
+}
+
+.logo-right {
+    max-width: 7em; /* Adjust size as needed */
+    margin: -0.2em;
+    transform: scaleX(-1);
+    height: auto;
+}
+
+/* Title styling */
+.portfolio-heading {
+    font-size: var(--fs-h2); /* Use your variable for consistent styling */
+    font-weight: var(--fw-bold);
+    color: var(--clr-accent); /* Adjust color as needed */
+    margin: 0; /* Remove default margins */
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    /* gap: 0.25em; */
+    margin: 0 auto;
+}
+
+.portfolio__item {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* Maintains aspect ratio */
+    background: var(--clr-light2); /* Background color */
+    border-radius: 0.5em;
+    overflow: hidden; /* Hide overflow to keep content within bounds */
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.portfolio__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center image */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+    transition: transform 750ms cubic-bezier(.5, 0, .5, 1), opacity 250ms linear;
+}
+
+.hover-text {
+    position: absolute; /* Absolute positioning */
+    bottom: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, 50%); /* Offset by half its own height */
+    font-style: var(--ff-primary);
+    font-size: var(--fs-p);
+    font-weight: var(--fw-bold);
+    opacity: 0; /* Initially hide the text */
+    transition: opacity 0.3s ease; /* Smooth transition effect */
+    color: #fff;
+    text-align: center; /* Center text within its container */
+}
+
+.portfolio__item:hover .portfolio__img,
+.portfolio__item:focus .portfolio__img {
+    mix-blend-mode: difference;
+    opacity: .5;
+}
+
+.portfolio__item:focus {
+    border-radius: 2em; /* Adjust this value as needed */
+    border: 0.4em solid var(--clr-accent); /* Optional: Border color */
+}
+
+.portfolio__item:hover .hover-text,
+.portfolio__item:focus .hover-text {
+    opacity: 1; /* Show text when the image is hovered */
+}
+
+
+/* footer */
+.footer {
+    background: var(--clr-light2);
+    color: var(--clr-dark);
+    text-align: center;
+    padding: 1em 0;
+    font-size: var(--fs-h3);
+}
+
+.footer .logo {
+    max-width: 4em;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    bottom: 0.4em;
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+    padding: 0.2em;
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    color: var(--clr-accent);
+    transform: scale(1.2);
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+/* social list */
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0.5em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.social-list__link {
+    padding: .5em;
+}
+
+/* Individual portfolio item styles */
+
+/*main portfolio img*/
+.portfolio-img {
+    width: 50%;
+    min-width: 20em;
+    margin-top: 2%;
+    object-fit: cover; /* Ensure the image covers the container */;
+}
+
+.portfolio-item-description {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-description p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*portfolio progress img*/
+.portfolio-item-progress {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1em;
+    width: 100%;
+}
+
+.work-icons {
+    position: center;
+}

@@ -1,0 +1,497 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Custom Properties, update these for own design */
+
+:root {
+    --ff-primary: 'IBM Plex Sans', sans-serif;
+    --ff-secondary: 'IBM Plex Sans', sans-serif;
+
+    --fw-reg: 400;
+    --fw-bold: 700;
+
+    --clr-light: #00080b;
+    --clr-light2: #f26a02;
+    --clr-accent: #D8FBA6;
+    --clr-accent2: #e8e1cc;
+    --clr-accent3: #FC9B00;
+    --clr-dark:  #EB225D;
+    --clr-teal: #275959;
+
+    /* --clr-light: #e8e1cc;
+    --clr-light2: #D8FBA6;
+    --clr-accent: #f26a02;
+    --clr-accent2: #FC9B00;
+    --clr-accent3: #EB225D;
+    --clr-dark: #00314A;
+    --clr-teal: #275959; */
+    
+/* orange #ffaa00 */
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    /* image size */
+    --is-h1: 85%;
+    --is-h2: 75%;
+    --is-h3: 50%;
+    --is-body: 25%;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+    0.125em 0.125em 0.25em rgba(0,0,0,.15);
+
+    --icon-width: 3em; /* Default width for icons */
+    --icon-height: 3em; /* Default height for icons */
+    --icon-gap: 1em; /* Gap between icons */
+}
+
+@media (min-width: 900px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 2.25rem;
+        --fs-body: 1.125rem;
+
+        --icon-width: 2.5em; /* Smaller icon width for small screens */
+        --icon-height: 2.5em; /* Smaller icon height for small screens */
+        --icon-gap: 0.5em; /* Smaller gap for small screens */
+    }
+}
+
+/* General Styles */
+
+/* html scrolling during Java Scripting part of tutorial */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--clr-light);
+    /* background-image: url(/img/texture/crumple.jpeg);
+    background-size: cover; */
+    color: var(--clr-accent);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section { 
+    padding: 4em 1em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+strong { 
+    font-weight: var(--fw-bold)
+}
+
+/*1:04:18 of tutorial*/
+
+:focus {
+    border-radius: 0.2em; /* Adjust this value as needed */
+    border: 0.05em solid var(--clr-accent); /* Optional: Border color */
+    box-shadow: 0 0 0 0.1em var(--clr-accent); /* Optional: Shadow effect */
+    outline: none; /* Optional: Remove default outline */
+}
+
+/* Apply rounded corners specifically to inputs and buttons */
+input:focus, button:focus {
+    border-radius: 0.2em;
+    border: 0.2em solid var(--clr-accent); /* Optional: Border color */
+    box-shadow: 0 0 0 0.1em var(--clr-accent); /* Optional: Shadow effect */
+    outline: none; /* Optional: Remove default outline */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.5em 3em;
+    background: var(--clr-dark);
+    color: var(--clr-accent);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transition: transform 200ms ease-in-out;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+    line-height: 1.125;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1)}
+h2 { font-size: var(--fs-h2)}
+h3 { font-size: var(--fs-h3)}
+
+/* spacing of section titles, the big headache */
+.section__title {
+    margin-bottom: 0 auto;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+    font-size: var(--fs-h3);
+}
+
+.section__title--intro strong {
+    display: block;
+}
+
+/* header */
+/* navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    /* margin */
+}
+
+.logo {
+    max-width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -2em;
+    /* try svg 1:38:11*/
+}
+
+.nav {
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5,0,.5,1);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 4em;
+}
+
+.nav__link {
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h3);
+    text-decoration: none;
+    padding: 0.3em;
+}
+
+.nav__link:hover {
+    color: var(--clr-accent);
+}
+
+.nav-toggle {
+    padding: 1.5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: fixed;
+    /* position used to be absolute */
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+
+.nav-toggle:not(:hover) {
+    mix-blend-mode: darken;
+}
+
+.nav-toggle:hover {
+    transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+/* JS  */
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-0.38em);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
+/* hamburger, more complicated way so can add animations */
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-accent);
+    width: 4em;
+    height: 0.2em;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.hamburger::before { top: 0.5em; }
+.hamburger::after { bottom: 0.5em; }
+
+/* Videos */
+@media (max-width: 600px) {
+    .youtube-video {
+        width: 100%; /* Full width on small screens */
+        margin-top: 1em; /* Adjust top margin for small screens */
+    }
+    .container {
+        padding: 0 1em; /* Add padding for smaller screens */
+    }
+
+    section {
+        padding: 1em 0.5em; /* Further adjust padding for very small screens */
+    }
+}
+
+.container {
+    max-width: 100%; /* Ensure containers do not exceed screen width */
+    margin: 0 auto; /* Center containers */
+}
+section {
+    padding: 2em 1em; /* Adjust padding for smaller screens */
+}
+
+/* Youtube Videos */
+.video-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically if needed */
+    text-align: center; /* Center text horizontally */
+    margin: 1em; /* Center container horizontally */
+}
+
+.video-container p {
+    display: flex; /* Ensure icons are aligned horizontally */
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center;
+    font-weight: var(--fw-bold);
+}
+
+.youtube-video {
+    width: 60%;
+    aspect-ratio: 16 / 9; /* Maintains 16:9 aspect ratio */
+    height: auto;
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* TikTok Videos */
+.tiktok-container {
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto; /* Center align */
+    background: transparent; /* Ensure background is transparent */
+}
+
+/* Styling the blockquote element for the TikTok embed */
+.tiktok-container blockquote {
+    width: 100%; /* Full width of the container */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    border: none; /* Remove border if any */
+    background: transparent; /* Ensure background is transparent */
+}
+
+/* Make sure the TikTok iframe, if used, fits the container */
+.tiktok-container iframe {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    border: none; /* Remove border if any */
+}
+
+.tiktok-container p {
+    display: flex; /* Ensure icons are aligned horizontally */
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center;
+    font-weight: var(--fw-bold);
+}
+
+@media (max-width: 600px) {
+    .portfolio-progress-container {
+        grid-template-columns: 1fr; /* Stack images vertically on small screens */
+        gap: 0.5em; /* Reduce gap on small screens */
+    }
+
+    .portfolio-progress-container img {
+        grid-column: span 1; /* Each image takes up one column */
+    }
+}
+
+/*portfolio progress img*/
+.portfolio-item-progress {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust based on your preference */
+    grid-auto-rows: minmax(200px, auto); /* Adjust row height as needed */
+    gap: 1em; /* Space between images */
+    justify-content: center; /* Center the grid horizontally */
+    position: relative; /* Positioning context for absolutely positioned items */
+}
+
+.portfolio-progress-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure the image covers the container */
+    position: relative;
+    z-index: 1; /* Ensure images are on top */
+}
+
+/*main portfolio img*/
+.portfolio-img {
+    width: var(--is-h3);
+    min-width: 20em;
+    margin-top: 2%;
+    object-fit: cover; /* Ensure the image covers the container */;
+}
+
+.portfolio-img2 {
+    width: var(--is-h2);
+    min-width: 20em;
+    margin-top: 2%;
+    object-fit: cover; /* Ensure the image covers the container */;
+}
+
+.portfolio-img3 {
+    width: var(--is-h1);
+    margin-top: 5em;
+    object-fit: cover; /* Ensure the image covers the container */;
+}
+
+.portfolio-item-description {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-description p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Work icons container */
+.work-icons {
+    display: flex; /* Ensure icons are aligned horizontally */
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center;
+    gap: var(--icon-gap); /* Add gap between icons */
+    margin: 0 auto;
+}
+
+.work-icons p {
+    font-weight: var(--fw-bold);
+}
+
+/* Work icons */
+.work-icons svg {
+    width: var(--icon-width); /* Set width from custom property */
+    height: var(--icon-height); /* Set height from custom property */
+    display: block; /* Ensure icons are block elements */
+}
+
+/* footer */
+.footer {
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+    padding: 1em 0;
+    font-size: var(--fs-h3);
+}
+
+.footer .logo {
+    max-width: 3em;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 0.2em;
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+    padding: 0.3em;
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    color: var(--clr-accent);
+    transform: scale(1.2);
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+/* social list */
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0.5em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.social-list__link {
+    padding: .5em;
+}
