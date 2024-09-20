@@ -513,7 +513,7 @@ header {
 
 .portfolio {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
     /* gap: 0.25em; */
     margin: 0 auto;
 }
