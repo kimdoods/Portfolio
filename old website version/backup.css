@@ -229,6 +229,7 @@ header {
     border: 0;
     cursor: pointer;
     position: fixed;
+    /* position used to be absolute */
     right: 1em;
     top: 1em;
     z-index: 1000;
@@ -437,16 +438,101 @@ header {
     background-color: var(--clr-dark);
     color: var(--clr-light);
     text-align: center;
+    padding: 3em 0;
 }
 
 /* Title container */
 .portfolio-title {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 1em; /* Adjust space between logos and title */
+    gap: 1em;
     margin-bottom: 2em;
 }
+
+.portfolio-heading {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
+    color: var(--clr-accent);
+}
+
+.portfolio-container {
+    display: flex;
+    overflow: hidden; /* Hide extra content outside the container */
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+ .portfolio-item {
+    min-width: 100%;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for sliding effect */
+}
+
+.portfolio-thumb img {
+    width: 50%;
+    max-width: 50%;
+    height: auto;
+}
+
+.portfolio-navigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.nav-prev,
+.nav-next {
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    border: none;
+    padding: 1em;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-prev:hover,
+.nav-next:hover {
+    background-color: var(--clr-accent2);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.modal-content {
+    background-color: var(--clr-light);
+    padding: 2em;
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+.modal-image-container {
+    margin-bottom: 1em;
+    max-width: 80%;
+}
+
+.btn-close {
+    padding: 0.5em 2em;
+    background: var(--clr-accent);
+    color: var(--clr-light);
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+} */
 
 /* Logo styling */
 .logo-left {
@@ -657,4 +743,139 @@ header {
 
 .work-icons {
     position: center;
+}
+
+
+
+
+
+
+:focus {
+    border-radius: 0.2em; /* Adjust this value as needed */
+    border: 0.05em solid var(--clr-accent); /* Optional: Border color */
+    box-shadow: 0 0 0 0.1em var(--clr-accent); /* Optional: Shadow effect */
+    outline: none; /* Optional: Remove default outline */
+}
+
+
+
+before title styling comment
+
+/* Portfolio */
+@media (max-width: 600px) {
+    .portfolio {
+        grid-template-columns: repeat(auto-fit, minmax(12em, 1fr)); /* Adjust min-width */
+        gap: 1em; /* Adjust the gap between items */
+    }
+
+    .portfolio__item {
+        padding-top: 80%; /* Adjust aspect ratio if needed */
+        margin: 0.5em; /* Add some margin to avoid items being too close */
+    }
+
+    .portfolio__img {
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .hover-text {
+        font-size: 0.9rem; /* Adjust font size if needed */
+    }
+
+    .portfolio-title {
+        display: flex; /* Ensure it uses Flexbox */
+        flex-direction: row; /* Align items side by side */
+        align-items: center; /* Vertically center items */
+        justify-content: center; /* Center horizontally */
+        gap: 1em; /* Adjust space between items */
+        margin-bottom: 2em; /* Ensure there’s some space below */
+    }
+
+    .logo-left, .logo-right {
+        max-width: 5em; /* Adjust logo size */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .portfolio-heading {
+        font-size: 1.5rem; /* Adjust heading size */
+    }
+}
+
+
+/* about me section css */
+.about-me {
+    max-width: 1100px;
+    /* background-image: url(/img/brand/logo-1.png);
+    background-size: 200px 200px; */
+    margin: 0 auto;
+    color: var(--clr-dark);
+    font-weight: var(--fw-bold);
+}
+
+.about-me__img {
+    box-shadow: var(--bs);
+}
+
+.about-me ul {
+    list-style:circle;
+}
+
+.about-me__description {
+    font-weight: var(--fw-reg);
+}
+
+@media (min-width: 600px) {
+    /* picture size in about me section */
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 15em;
+        grid-template-areas:
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+
+    .section__title--about {
+        grid-area: title;
+    }
+
+    .about-me__img {
+        grid-area: img;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+    /* the bar that says "Kim Lagunas" */
+.section__subtitle--about {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        padding: 0.2em 0.2em; /* Adjust padding as needed */
+        display: inline-block; /* Shrink to fit content */
+        transform: translateX(-0.2em); /* Shift the block to the left */
+        margin: 0 auto;
+        
+
+        border-radius: 0.2em; /* Rounded corners */
+        color: var(--clr-light); /* Text color */
+        background-color: var(--clr-accent3); /* Pink/red background color */
+        font-size: var(--fs-h3); /* Font size for the text */
+}
+
+
+
+.hover-text {
+    position: absolute;
+    bottom: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, 50%); /* Offset by half its own height */
+    font-style: var(--ff-primary);
+    font-size: var(--fs-p);
+    font-weight: var(--fw-bold);
+    opacity: 0; /* Initially hide the text */
+    transition: opacity 0.3s ease; /* Smooth transition effect */
+    color: #fff;
+    text-align: center; /* Center text within its container */
 }

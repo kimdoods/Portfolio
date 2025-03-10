@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-orange: #dc5203;
+    --clr-white: #efd6ac;
+    --clr-teal: #268d86;
+    --clr-black: #04151f;
+    --clr-purple: #432534;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    background: var(--clr-black);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--clr-teal);
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--clr-orange);
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.5em;
+}
+
+.social-icons a {
+    color: var(--clr-white);
+    font-size: 1.5rem;
+}
+
+main {
+    text-align: center;
+    width: 100%;
+}
+
+main h1 {
+    margin-bottom: 0.4em;
+}
+
+main p {
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--clr-orange);
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--clr-white);
+}
+
+.showreel-container {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 1em;
+}
+
+/* Contact HTML CSS */
+
+.contact a {
+    color: var(--clr-black);
+}
+
+.contact a:hover {
+    color: var(--clr-orange);
+}
+
+.contact a:visited {
+    color: var(--clr-black);
+}
+
+.contact p {
+    font-size: 1rem;
+}
+
+.contact-about p {
+    max-width: 450px;
+    letter-spacing: 3px;
+    line-height: 1.5;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2em 0;
+    gap: 1.5em;
+}
+
+.contact-container p {
+    font-size: 0.75rem;
+    text-align: left;
+}
+
+.contact-skills p {
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.contact-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--clr-orange);
+    text-align: center;
+    position: relative;
+}
+
+/* Style adjustments for the boxes */
+.contact-about, .contact-skills {
+    max-width: 45%; /* Keep the width balanced */
+    box-sizing: border-box; 
+}
+
+/* Work HTML CSS */
+
+/* Portfolio Grid Container */
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 1em;
+    width: 100%;
+    gap: 0.3em;
+}
+
+.portfolio-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Individual Portfolio Item */
+.portfolio-item {
+    position: relative;
+    background-color: var(--clr-teal); /* Background color for each card */
+    overflow: hidden;
+    height: 450px; /* Fixed height for uniformity */
+    border-radius: 0.25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover Effect to Scale Up */
+.portfolio-item:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+/* Overlay for Title */
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-orange);
+    /* background-color: rgba(0, 0, 0, 0.6);  */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Title Styling */
+.portfolio-overlay h3 {
+    color: var(--clr-white);
+    mix-blend-mode: color-dodge;
+    text-shadow: 0 0 10px var(--clr-white), 0 0 20px var(--clr-white);
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Show Overlay on Hover */
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+    mix-blend-mode: difference;
+}
