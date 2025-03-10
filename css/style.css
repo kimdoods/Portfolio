@@ -229,7 +229,6 @@ header {
     border: 0;
     cursor: pointer;
     position: fixed;
-    /* position used to be absolute */
     right: 1em;
     top: 1em;
     z-index: 1000;
