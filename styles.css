@@ -8,8 +8,8 @@
     --clr-orange: #dc5203;
     --clr-white: #efd6ac;
     --clr-teal: #268d86;
-    --clr-black: #04151f;
-    --clr-purple: #432534;
+    --clr-black: #020e14;
+    --clr-pink: #c80d4b;
 }
 
 body {
@@ -216,4 +216,124 @@ iframe {
 .portfolio-item:hover .portfolio-overlay {
     opacity: 1;
     mix-blend-mode: difference;
+}
+
+/* Individual Portfolio Item Works */
+
+.art-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+    padding: 2em;
+    margin: 0 auto;
+}
+
+.art-intro, .art-description, .software-description {
+    width: 100%;
+    text-align: left;
+    padding: 1em 0;
+}
+
+.art-intro h2 {
+    color: var(--clr-white);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.progress-video-container {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    margin: 1em 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.art-progress-pics {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+    margin: 1em 0;
+}
+
+.art-progress-pics img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+}
+
+.software-description p {
+    font-size: 1em;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.art-description p {
+    font-size: 1em;
+    line-height: 1.4em;
+    letter-spacing: 1px;
+}
+
+/* Footer styling */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.footer img {
+    width: 80px; /* Smaller logo */
+    height: auto;
+    margin-bottom: 0.75em;
+}
+
+.footer a {
+    color: var(--clr-teal);
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--clr-orange);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .art-container h1 {
+        font-size: 1em;
+    }
+
+    .art-container p {
+        font-size: 0.75em;
+    }
+
+    .art-container {
+        padding: 0.2em;
+    }
+
+    .progress-video-container {
+        aspect-ratio: 4 / 3;
+        min-width: 300px;
+    }
+
+    .art-progress-pics {
+        flex-direction: column;
+    }
+
+    .footer img {
+        width: 60px;
+    }
+}
+
+/* Expand video on larger screens */
+@media (min-width: 1200px) {
+    .progress-video-container {
+        max-width: 2000px;
+    }
 }
