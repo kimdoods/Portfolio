@@ -277,6 +277,58 @@ iframe {
     letter-spacing: 1px;
 }
 
+.img-thumb {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.img-thumb img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+  display: block;
+}
+
+/* Lightbox */
+.img-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;                 /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.75);
+  padding: 1rem;
+}
+
+.img-modal.is-open {
+  display: flex;
+}
+
+.img-modal__img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 1em;
+  object-fit: contain;          /* fits whole image without cropping */
+}
+
+.img-modal__close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10000;
+  border: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
 /* Footer styling */
 
 .footer {
