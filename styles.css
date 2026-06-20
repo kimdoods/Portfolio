@@ -77,7 +77,7 @@ p {
 
 .showreel-container {
   width: 100%;
-  max-width: 1200px;      /* controls “not overdo it” */
+  max-width: 1600px;      /* controls “not overdo it” */
   margin: 0 auto;
   aspect-ratio: 16 / 9;   /* keeps consistent proportions */
 }
