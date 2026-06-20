@@ -6,20 +6,21 @@
         <title>My Body | Kim</title>
         <link rel="stylesheet" href="../styles.css">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
-        <link rel="manifest" href="../img/favicon/site.webmanifest">
-        <link rel="mask-icon" href="../img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+       <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+       <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
+       <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+       <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+       <meta name="apple-mobile-web-app-title" content="kimdoods" />
+       <link rel="manifest" href="/img/favicon/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
 </head>
 <body>
     <header>
         <nav>
-            <a href="../index.html">Showreel</a>
+            <a href="../index.html">Demo Reel</a>
             <a href="../work.html">Work</a>
-            <a href="../contact.html">Contact</a>
+            <a href="../contact.html">About</a>
         </nav>
     </header>
 
@@ -32,7 +33,9 @@
     </div>
 
     <div class="art-progress-pics">
-        <img src="../img/illustration/bitter.jpg" alt="Progress 0">
+        <button class="img-thumb" type="button">
+         <img src="../img/illustration/bitter.jpg" alt="Final">
+        </button>
     </div>
 
     <div class="tiktok-container">
@@ -55,14 +58,19 @@
 
     <div class="art-description"> 
         <p>Painted pre-mastectomy.</p>
-        <p>I craved relief until May 20, 2023.</p>
+        <p>Through frustration from years of body dysphoria, this piece was made and was posted on my Twitter account. I was finally relieved of it on May 20, 2023.</p>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <img src="../img/brand/logo-1.png" alt="kimdoods Logo">
+        <img src="../img/brand/michi.png" alt="kimdoods Logo">
         <a href="mailto:kimelagunas@gmail.com">kimelagunas@gmail.com</a>
     </footer>
+
+    <div class="img-modal" aria-hidden="true">
+     <button class="img-modal__close" aria-label="Close image">✕</button>
+     <img class="img-modal__img" src="" alt="">
+    </div>
 
     <script src="../js/index.js"></script>
     <script async src="https://www.tiktok.com/embed.js"></script>
